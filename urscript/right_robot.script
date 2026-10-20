@@ -7,18 +7,14 @@ PICK_ABOVE = p[-.5, -.1, .0, d2r(0), d2r(180), d2r(0)]  # Above pick pose
 
 global GRIPPER_RPC = rpc_factory("xmlrpc", "http://" + GRIPPER_BOX_ADDR + ":41414")
 
-def rg_is_busy():
-  return GRIPPER_RPC.rg_get_busy(GRIPPER_TOOL_INDEX)
-end
-
 # width range: [0, 110]
 # force range: [0, 40]
-def rg_grip(width, force = 10, gripper_tool_index = 0):
-  GRIPPER_RPC.rg_grip(gripper_tool_index, width + .0, force + .0)
+def rg_grip(width, force = 10, tool_index = 0):
+  GRIPPER_RPC.rg_grip(tool_index, width + .0, force + .0)
   # `+ .0` required, because rg_grip expects float
 
   sleep(0.01) # Wait for the gripper to start moving before checking rg_is_busy()
-  while (rg_is_busy()):
+  while (GRIPPER_RPC.rg_get_busy(tool_index)):
   end
 end
 
