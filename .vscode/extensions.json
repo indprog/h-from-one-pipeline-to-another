@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"ms-python.python",
+		"detachhead.basedpyright",
+		"charliermarsh.ruff",
+		"GitHub.vscode-pull-request-github",
+		"ahernguo.urscript"
+	]
+}
