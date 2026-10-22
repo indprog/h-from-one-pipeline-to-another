@@ -6,12 +6,12 @@ from robot_arm import RobotArm
 
 logging.basicConfig(level=logging.INFO)
 
-rl = RobotArm(ROBOT_LEFT_ADDRESS)
+rl = RobotArm(ROBOT_LEFT_ADDRESS, name="left")
 rl.connect()
 rl.power_on()
 rl.brake_release()
 
-rr = RobotArm(ROBOT_RIGHT_ADDRESS)
+rr = RobotArm(ROBOT_RIGHT_ADDRESS, name="right")
 rr.connect()
 rr.power_on()
 rr.brake_release()

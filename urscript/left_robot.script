@@ -1,7 +1,7 @@
 # Configuration constants
 GRIPPER_BOX_ADDR = "__GRIPPER_BOX_ADDR__"  # Replaced by Python
 HOME = [d2r(90), d2r(-90), d2r(5), d2r(-70), d2r(-90), d2r(180)]
-PICK_ABOVE = p[.4, -.1, .0, d2r(0), d2r(180), d2r(0)]  # Above pick pose
+PICK_ABOVE = p[.0, -.3, .0, d2r(0), d2r(180), d2r(0)]  # Above pick pose
 
 ## YOUR CODE HERE
 
@@ -24,13 +24,14 @@ def pick(width = 0, force = 10):
 end
 
 # Places an item using the gripper
-def place(width = 50, force = 0):
+def place(width = 50, force = 10):
   rg_grip(width, force)
 end
 
 
 # Function test
 movej(HOME)
+place()
 pick()
 while get_standard_digital_in(3) == False:  # Wait for sensor to activate.
   sleep(0.1)
